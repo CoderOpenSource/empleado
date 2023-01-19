@@ -1,0 +1,33 @@
+{% extends '../base.html'   %}
+{% block title %}
+Eliminar Empleado
+{% endblock %}
+{% block content %}
+{% include '../includes/header.html' %}
+<div class="grid-container">
+    <div class="grid-x">
+        <div class="cell">
+            <h1>Eliminar empleado: {{empleado.full_name}}</h1>
+        </div>
+        <div class="cell">
+            <form method="POST" class="grid-x">
+                {% csrf_token %}
+                <div class="cell">
+                    <div class="cell callout alert">
+                    <h5>¿Esta seguro de eliminar al empleado?</h5>
+                        <p>Una vez eliminado no podrá recuperar sus datos!!</p>
+                    <div class="cell">
+                        <input type="submit" class="button alert" value="Aceptar">
+                        <a class="button success" href=" {% url 'persona_app:listaAdminEmpleados' %} ">Cancelar</a>
+                    </div>
+
+                </div>
+                </div>
+
+
+</form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
